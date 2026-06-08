@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudyHub | Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>StudyHub</h1>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="resources.html">Resources</a>
+      <a href="notes.html">Notes</a>
+    </nav>
+  </header>
+
+  <main class="dashboard">
+    <section class="card">
+      <h2>Today's Tasks</h2>
+
+      <div class="task-form">
+        <input type="text" id="taskInput" placeholder="Add a study task">
+        <button id="addTaskBtn">Add Task</button>
+      </div>
+
+      <ul id="taskList"></ul>
+    </section>
+
+    <section class="card">
+      <h2>Study Progress</h2>
+      <p>Weekly Goal Progress</p>
+      <progress value="30" max="100"></progress>
+      <p>30% complete</p>
+    </section>
+
+    <section class="card">
+      <h2>Pomodoro Timer</h2>
+      <p class="timer">25:00</p>
+      <button>Start</button>
+      <button>Reset</button>
+    </section>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

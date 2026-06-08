@@ -1,0 +1,84 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f8fafc;
+  color: #1e293b;
+}
+
+.site-header {
+  background-color: #2563eb;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+.site-header nav {
+  margin-top: 0.5rem;
+}
+
+.site-header a {
+  color: white;
+  text-decoration: none;
+  margin: 0 0.5rem;
+  font-weight: bold;
+}
+
+.hero {
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 2rem;
+}
+
+.btn,
+button {
+  display: inline-block;
+  background-color: #10b981;
+  color: white;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.dashboard,
+.page {
+  padding: 1rem;
+}
+
+.dashboard {
+  display: grid;
+  gap: 1rem;
+}
+
+.card {
+  background: white;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.timer {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+@media (min-width: 700px) {
+  .dashboard {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
