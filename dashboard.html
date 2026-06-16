@@ -19,6 +19,12 @@
   </header>
 
   <main class="dashboard">
+
+    <section class="card welcome-card">
+      <h2>Welcome Back</h2>
+      <p>Track your study tasks, goals, and progress.</p>
+    </section>
+
     <section class="card">
       <h2>Today's Tasks</h2>
 
@@ -31,18 +37,43 @@
     </section>
 
     <section class="card">
-      <h2>Study Progress</h2>
-      <p>Weekly Goal Progress</p>
-      <progress value="30" max="100"></progress>
-      <p>30% complete</p>
+      <h2>Study Goals</h2>
+
+      <div class="task-form">
+        <input type="text" id="goalInput" placeholder="Add a study goal">
+        <button id="addGoalBtn">Add Goal</button>
+      </div>
+
+      <ul id="goalList"></ul>
     </section>
 
     <section class="card">
-      <h2>Pomodoro Timer</h2>
-      <p class="timer">25:00</p>
-      <button>Start</button>
-      <button>Reset</button>
+      <h2>Study Progress</h2>
+
+      <p>Completed Tasks: <span id="completedCount">0</span></p>
+      <p>Total Tasks: <span id="totalCount">0</span></p>
+      <p>Active Goals: <span id="goalCount">0</span></p>
+
+      <progress id="progressBar" value="0" max="100"></progress>
+
+      <p><span id="progressText">0</span>% complete</p>
     </section>
+    
+    <section class="card">
+  <h2>Daily Motivation</h2>
+  <p id="quoteText">Loading motivation...</p>
+</section>
+
+    <section class="card">
+      <h2>Pomodoro Timer</h2>
+
+      <p class="timer" id="timerDisplay">25:00</p>
+
+      <button id="startTimer">Start</button>
+      <button id="pauseTimer">Pause</button>
+      <button id="resetTimer">Reset</button>
+    </section>
+
   </main>
 
   <script src="js/main.js"></script>

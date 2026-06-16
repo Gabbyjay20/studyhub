@@ -20,12 +20,25 @@
 
   <main class="page">
     <section class="card">
-      <h2>Learning Resources</h2>
-      <p>Search and save helpful study resources for your courses.</p>
+  <h2>Learning Resources</h2>
 
-      <input type="text" placeholder="Search for a topic">
-      <button>Search</button>
-    </section>
+  <input
+    type="text"
+    id="searchInput"
+    placeholder="Search resources..."
+  >
+
+  <button id="searchBtn">Search</button>
+
+  <div id="resourceList"></div>
+</section>
+
+<section class="card">
+  <h2>Saved Resources</h2>
+  <div id="savedResources"></div>
+</section>
   </main>
+
+  <script src="js/resources.js"></script>
 </body>
 </html>

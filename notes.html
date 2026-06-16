@@ -23,14 +23,41 @@
       <h2>Study Notes</h2>
 
       <textarea
-        rows="10"
-        placeholder="Write your notes here..."
-      ></textarea>
+  id="notesArea"
+  rows="10"
+  placeholder="Write your notes here..."
+></textarea>
 
-      <br><br>
+<br><br>
 
-      <button>Save Notes</button>
+<button id="saveNotesBtn">Save Notes</button>
+
+<p id="saveMessage"></p>
     </section>
   </main>
+
+  <script>
+const notesArea = document.getElementById("notesArea");
+const saveBtn = document.getElementById("saveNotesBtn");
+const saveMessage = document.getElementById("saveMessage");
+
+// Load saved notes
+const savedNotes = localStorage.getItem("studyhubNotes");
+
+if (savedNotes) {
+  notesArea.value = savedNotes;
+}
+
+// Save notes
+saveBtn.addEventListener("click", () => {
+  localStorage.setItem("studyhubNotes", notesArea.value);
+
+  saveMessage.textContent = "Notes saved successfully!";
+  
+  setTimeout(() => {
+    saveMessage.textContent = "";
+  }, 3000);
+});
+</script>
 </body>
 </html>
