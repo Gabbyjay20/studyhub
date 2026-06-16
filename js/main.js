@@ -203,20 +203,14 @@ if (timerDisplay) {
 const quoteText = document.getElementById("quoteText");
 
 if (quoteText) {
-
   fetch("https://zenquotes.io/api/random")
     .then(response => response.json())
     .then(data => {
-
       quoteText.textContent =
         `"${data[0].q}" — ${data[0].a}`;
-
     })
     .catch(() => {
-
       quoteText.textContent =
         "Success is the sum of small efforts repeated day after day.";
-
     });
-
 }

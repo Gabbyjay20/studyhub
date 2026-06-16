@@ -1,8 +1,9 @@
 console.log("resources.js loaded");
-const searchInput = document.querySelector("#searchInput");
-const searchBtn = document.querySelector("#searchBtn");
-const resourceList = document.querySelector("#resourceList");
-const savedResources = document.querySelector("#savedResources");
+
+const searchInput = document.getElementById("searchInput");
+const searchBtn = document.getElementById("searchBtn");
+const resourceList = document.getElementById("resourceList");
+const savedResources = document.getElementById("savedResources");
 
 const resources = [
   {
@@ -35,6 +36,8 @@ const resources = [
 let bookmarks =
   JSON.parse(localStorage.getItem("studyhubBookmarks")) || [];
 
+/* Save bookmarks */
+
 function saveBookmarks() {
   localStorage.setItem(
     "studyhubBookmarks",
@@ -42,10 +45,14 @@ function saveBookmarks() {
   );
 }
 
+/* Display resources */
+
 function displayResources(resourceArray) {
+
   resourceList.innerHTML = "";
 
   resourceArray.forEach(resource => {
+
     const card = document.createElement("div");
 
     card.className = "item-row";
@@ -55,12 +62,14 @@ function displayResources(resourceArray) {
         <strong>${resource.title}</strong><br>
         ${resource.category}
       </span>
+
       <button class="save-btn">
         Save
       </button>
     `;
 
-    const saveBtn = card.querySelector(".save-btn");
+    const saveBtn =
+      card.querySelector(".save-btn");
 
     saveBtn.addEventListener("click", () => {
 
@@ -69,8 +78,11 @@ function displayResources(resourceArray) {
       );
 
       if (!exists) {
+
         bookmarks.push(resource);
+
         saveBookmarks();
+
         displayBookmarks();
       }
     });
@@ -79,7 +91,10 @@ function displayResources(resourceArray) {
   });
 }
 
+/* Display bookmarks */
+
 function displayBookmarks() {
+
   savedResources.innerHTML = "";
 
   bookmarks.forEach((resource, index) => {
@@ -94,36 +109,61 @@ function displayBookmarks() {
           ${resource.title}
         </a>
       </span>
-      <button>Remove</button>
+
+      <button class="remove-btn">
+        Remove
+      </button>
     `;
 
-    card.querySelector("button")
-      .addEventListener("click", () => {
+    const removeBtn =
+      card.querySelector(".remove-btn");
 
-        bookmarks.splice(index, 1);
+    removeBtn.addEventListener("click", () => {
 
-        saveBookmarks();
+      bookmarks.splice(index, 1);
 
-        displayBookmarks();
-      });
+      saveBookmarks();
+
+      displayBookmarks();
+    });
 
     savedResources.appendChild(card);
   });
 }
 
-searchBtn.addEventListener("click", () => {
+/* Search resources */
 
-  const searchTerm =
-    searchInput.value.toLowerCase();
+if (searchBtn) {
 
-  const filteredResources =
-    resources.filter(resource =>
-      resource.title.toLowerCase().includes(searchTerm) ||
-      resource.category.toLowerCase().includes(searchTerm)
-    );
+  searchBtn.addEventListener("click", () => {
 
-  displayResources(filteredResources);
-});
+    const searchTerm =
+      searchInput.value.toLowerCase();
+
+    const filteredResources =
+      resources.filter(resource =>
+
+        resource.title
+          .toLowerCase()
+          .includes(searchTerm)
+
+        ||
+
+        resource.category
+          .toLowerCase()
+          .includes(searchTerm)
+
+      );
+
+    displayResources(filteredResources);
+
+  });
+
+}
+
+/* Initial load */
 
 displayResources(resources);
+
 displayBookmarks();
+
