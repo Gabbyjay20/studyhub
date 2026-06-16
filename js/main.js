@@ -200,21 +200,23 @@ if (timerDisplay) {
 
 // Motivational Quotes
 
-const quoteText = document.querySelector("#quoteText");
+const quoteText = document.getElementById("quoteText");
 
 if (quoteText) {
-  const quotes = [
-    "Success is the sum of small efforts repeated day after day.",
-    "Consistency beats intensity.",
-    "Small progress is still progress.",
-    "The expert in anything was once a beginner.",
-    "Study now, succeed later.",
-    "Discipline is choosing what you want most over what you want now."
-  ];
 
-  const randomQuote =
-    quotes[Math.floor(Math.random() * quotes.length)];
+  fetch("https://zenquotes.io/api/random")
+    .then(response => response.json())
+    .then(data => {
 
-  quoteText.textContent = randomQuote;
+      quoteText.textContent =
+        `"${data[0].q}" — ${data[0].a}`;
+
+    })
+    .catch(() => {
+
+      quoteText.textContent =
+        "Success is the sum of small efforts repeated day after day.";
+
+    });
+
 }
-
